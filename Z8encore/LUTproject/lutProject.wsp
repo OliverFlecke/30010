@@ -490,6 +490,7 @@ ptn_Child2=ChildFrames
 
 [WorkState_v1_1.Frames.ChildFrames]
 ptn_Child1=Document-0
+ptn_Child2=Document-1
 
 [WorkState_v1_1.Frames.ChildFrames.Document-0]
 ptn_Child1=ViewFrame-0
@@ -499,11 +500,21 @@ DocPathName=.\main.c
 DocTemplateIndex=0
 DocumentString=IDE Document
 IsActiveChildFrame=True
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAAAAAAAAAAAAAAAGBEAAAAAICBAAAAA
+WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPBOPPPPPPIGAAAAAAIGAAAAAAOHEAAAAAOKBAAAAA
+
+[WorkState_v1_1.Frames.ChildFrames.Document-1]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_1.Frames.ChildFrames.Document-1.ViewFrame-0]
+DocPathName=..\include\src\lut.c
+DocTemplateIndex=0
+DocumentString=IDE Document
+IsActiveChildFrame=False
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPBOPPPPPPCIAAAAAACIAAAAAAMJEAAAAAMMBAAAAA
 
 [WorkState_v1_1.Frames.MainFrame]
-Title=trigLut -- ZDS II - Z8 Encore! Family -- main.c
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAAADIPPPPAADIPPPPPPPPPPPPPPPPPPPPCIAAAAAACIAAAAAADIEAAAAAPICAAAAA
+Title=lutProject -- ZDS II - Z8 Encore! Family -- main.c - [main.c]
+WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPCIAAAAAACIAAAAAADIEAAAAAPICAAAAA
 
 [WorkState_v1_1.ToolBarMgr]
 CoolLook=True

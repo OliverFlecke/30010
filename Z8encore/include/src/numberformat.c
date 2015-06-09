@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <sio.h>
 #include "numberformat.h"
 
 // Tests
@@ -10,7 +10,7 @@
 /*
 	Prints fixedpoint 16.16 number 
 */
-void printFix(long i) {
+void printFixedPoint1616(long i) {
 	if ((i & 0x80000000) != 0) {
 		printf("-");
 		i = ~i+1;
@@ -19,10 +19,11 @@ void printFix(long i) {
 	printf("%ld.%04ld\n\n", i >> 16, 10000 * (unsigned long) (i & 0xffff) >> 16);
 }
 
+
 /*
 	Converts 2.14 format to 16.16
 */
-long expand(long i) {
+long expand1616(long i) {
 	if ((i & 0x8000) != 0) {
 		i = i & 0x7FFF;
 		return (i << 2) | 0xFFFF0000;

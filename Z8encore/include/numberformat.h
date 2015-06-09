@@ -2,8 +2,7 @@
 #ifndef NUMBERFORMAT
 #define NUMBERFORMAT
 
-void printFix(long i);
-int convertFixed(int x);
-long expand(long i);
+void printFixedPoint1616(long i);
+long expand1616(long i);
 
 #endif

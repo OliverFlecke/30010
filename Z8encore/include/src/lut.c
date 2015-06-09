@@ -6,8 +6,10 @@
 //	(comments, kudos, flames to daytshen@hotmail.com)
 //
 // =====================================================================
-
+#include <sio.h>
 #include "lut.h"
+#include "numberformat.h"
+
 // -----------------------------------------------------------------------
 // SIN: a 512 long LUT of 16bit values in 2.14 format
 // sin(x*pi/256)
@@ -86,16 +88,19 @@ const signed short SIN[512]=
 	0xF9BA,0xFA82,0xFB4B,0xFC13,0xFCDC,0xFDA5,0xFE6E,0xFF37,
 };
 
-
-#define BITSHIFTCONSTANT 91
-
-signed int sin(short x){
-
-	x = (x % 360) * BITSHIFTCONSTANT;
-	x >> 6;
+// Returns the value of sine(x) in the number format 2.14
+// Argument in degrees
+signed short sin(long x){
+	x = (x % 360) * 512/360;
 
 	if(x<0)
 		return -SIN[x];
 	else
 		return SIN[x];
+}
+
+// Returns the value of cosine(x) in the number format 2.14
+// Argument in degrees
+signed short cos(long x) {
+	return sin(x + 90);
 }

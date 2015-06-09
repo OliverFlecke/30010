@@ -14,6 +14,7 @@
 // === LUT DECLARATIONS ===
 extern const signed short SIN[512];
 
-signed int sin(short x);
+signed short sin(long x);
+signed short cos(long x);
 
 #endif	// LUT_H
