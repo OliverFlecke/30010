@@ -90,7 +90,7 @@ const signed short SIN[512]=
 
 // Returns the value of sine(x) in the number format 2.14
 // Argument in degrees
-signed short sin(long x){
+signed long sin(long x){
 	x = (x % 360) * 512/360;
 
 	if(x<0)
@@ -101,6 +101,6 @@ signed short sin(long x){
 
 // Returns the value of cosine(x) in the number format 2.14
 // Argument in degrees
-signed short cos(long x) {
+signed long cos(long x) {
 	return sin(x + 90);
 }

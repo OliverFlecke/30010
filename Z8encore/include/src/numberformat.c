@@ -24,8 +24,8 @@ void printFixedPoint1616(long i) {
 	Converts 2.14 format to 16.16
 */
 long expand1616(long i) {
-	if ((i & 0x8000) != 0) {
-		i = i & 0x7FFF;
+	if ((i & 0x80000000) != 0) {
+		i = i & 0x7FFFFFFF;
 		return (i << 2) | 0xFFFF0000;
 	} else
 		return i << 2;
