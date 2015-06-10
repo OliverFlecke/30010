@@ -491,6 +491,8 @@ ptn_Child2=ChildFrames
 [WorkState_v1_1.Frames.ChildFrames]
 ptn_Child1=Document-0
 ptn_Child2=Document-1
+ptn_Child3=Document-2
+ptn_Child4=Document-3
 
 [WorkState_v1_1.Frames.ChildFrames.Document-0]
 ptn_Child1=ViewFrame-0
@@ -500,21 +502,41 @@ DocPathName=.\main.c
 DocTemplateIndex=0
 DocumentString=IDE Document
 IsActiveChildFrame=True
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPBOPPPPPPIGAAAAAAIGAAAAAAOHEAAAAAOKBAAAAA
+WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPBOPPPPPPAAAAAAAAAAAAAAAAGBEAAAAAGEBAAAAA
 
 [WorkState_v1_1.Frames.ChildFrames.Document-1]
 ptn_Child1=ViewFrame-0
 
 [WorkState_v1_1.Frames.ChildFrames.Document-1.ViewFrame-0]
+DocPathName=..\include\src\numberformat.c
+DocTemplateIndex=0
+DocumentString=IDE Document
+IsActiveChildFrame=False
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPBOPPPPPPKBAAAAAAKBAAAAAAADEAAAAAAGBAAAAA
+
+[WorkState_v1_1.Frames.ChildFrames.Document-2]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_1.Frames.ChildFrames.Document-2.ViewFrame-0]
 DocPathName=..\include\src\lut.c
 DocTemplateIndex=0
 DocumentString=IDE Document
 IsActiveChildFrame=False
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPBOPPPPPPCIAAAAAACIAAAAAAMJEAAAAAMMBAAAAA
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPBOPPPPPPEDAAAAAAEDAAAAAAOEEAAAAAOHBAAAAA
+
+[WorkState_v1_1.Frames.ChildFrames.Document-3]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_1.Frames.ChildFrames.Document-3.ViewFrame-0]
+DocPathName=..\include\src\vector.c
+DocTemplateIndex=0
+DocumentString=IDE Document
+IsActiveChildFrame=False
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPBOPPPPPPOEAAAAAAOEAAAAAAIGEAAAAAKHBAAAAA
 
 [WorkState_v1_1.Frames.MainFrame]
 Title=lutProject -- ZDS II - Z8 Encore! Family -- main.c - [main.c]
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPCIAAAAAACIAAAAAADIEAAAAAPICAAAAA
+WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAAADIPPPPAADIPPPPPPPPPPPPPPPPPPPPCIAAAAAACIAAAAAADIEAAAAAPICAAAAA
 
 [WorkState_v1_1.ToolBarMgr]
 CoolLook=True

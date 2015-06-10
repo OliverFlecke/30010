@@ -1,8 +1,11 @@
 #ifndef TVECTOR_H
 #define TVECTOR_H
 
+struct TVector {
+	long x,y;
+};
+
 void initVector(struct TVector *v);
-long convert1814(long i);
-void rotate(sturct TVector *v, signed short phi);
+void rotate(struct TVector *v, signed short phi);
 
 #endif

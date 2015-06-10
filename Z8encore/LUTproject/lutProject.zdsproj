@@ -7,6 +7,7 @@
 <file filter-key="">.\main.c</file>
 <file filter-key="">..\include\src\lut.c</file>
 <file filter-key="">..\include\src\numberformat.c</file>
+<file filter-key="">..\include\src\vector.c</file>
 </files>
 
 <!-- configuration information -->

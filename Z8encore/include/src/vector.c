@@ -3,32 +3,19 @@
 #include "lut.h"
 #include "numberformat.h"
 
-struct TVector {
-	long x,y;
-};
-
 void initVector(struct TVector *v) {
-	v->x = 1;
-	v->y = 2;
+	v->x = 6;
+	v->y = 4;
 }
 
-long convert1814(long i) {
-	return i << 16;
-}
 
+/*
+	Rotates a vetor by the passed angle 
+*/
 void rotate(struct TVector *v, signed short phi) {
 	long temp = convert1814(v->x) * cos(phi) - convert1814(v->y) * sin(phi);
-	v->y = convert1814(v->y) * sin(phi) + convert1814(v->x) * cos(phi);
-	v->x = temp;
+	v->y = (convert1814(v->x) * sin(phi) + convert1814(v->y) * cos(phi)) >> 14;
+	v->x = temp >> 14;
 }
 
-void main() {
-	struct TVector v;
-	initVector(&v);
 
-	printf("%d %d\n", v.x, v.y);
-
-	// printf("%d %d\n", cos(180), sin(180));
-	// printFixedPoint1616(convert1616(cos(180)));
-	rotate(&v, 180);
-}

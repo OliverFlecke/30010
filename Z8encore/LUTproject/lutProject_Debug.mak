@@ -51,6 +51,8 @@ clean:
             del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\lut.obj
 	@if exist C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\numberformat.obj  \
             del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\numberformat.obj
+	@if exist C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\vector.obj  \
+            del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\vector.obj
 
 rebuildall: clean Debug
 
@@ -62,7 +64,8 @@ OBJS =  \
             C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\zsldevinit.obj  \
             C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\main.obj  \
             C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\lut.obj  \
-            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\numberformat.obj
+            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\numberformat.obj  \
+            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\vector.obj
 
 lutProject: $(OBJS)
 	 $(LINK)  @C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\lutProject_Debug.linkcmd
@@ -88,7 +91,8 @@ C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\L
             C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
             C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
             C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\include\lut.h  \
-            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\include\NUMBER~1.H
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\include\NUMBER~1.H  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\include\vector.h
 	 $(CC)  $(CFLAGS) C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\main.c
 
 C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\lut.obj :  \
@@ -119,4 +123,20 @@ C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\L
             C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
             C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\include\NUMBER~1.H
 	 $(CC)  $(CFLAGS) C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\include\src\numberformat.c
+
+C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\LUTproject\vector.obj :  \
+            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\include\src\vector.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\include\lut.h  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\include\NUMBER~1.H  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\include\vector.h
+	 $(CC)  $(CFLAGS) C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\include\src\vector.c
 
