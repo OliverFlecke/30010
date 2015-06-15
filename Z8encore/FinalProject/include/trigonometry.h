@@ -5,8 +5,8 @@
 //
 // =====================================================================
 
-#ifndef LUT_H
-#define LUT_H
+#ifndef TRIG_H
+#define TRIG_H
 
 // === LUT SIZES ===
 #define SIN_SIZE 512
@@ -14,7 +14,7 @@
 // === LUT DECLARATIONS ===
 extern const signed short SIN[512];
 
-signed long sin(signed long x);
-signed long cos(signed long x);
+signed long sin(signed short x);
+signed long cos(signed short x);
 
-#endif	// LUT_H
+#endif

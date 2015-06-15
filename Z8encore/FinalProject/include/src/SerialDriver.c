@@ -1,4 +1,6 @@
 #include "SerialDriver.h"
+#include "vector.h"
+#include "numberformat.h"
 
 // The x coordiante of the striker
 short strikerPosition;
@@ -90,11 +92,12 @@ void drawStriker(char direction) {
 
 /*
 	Draw the ball in the game grid
-*/
-void drawBall(short x, short y) {
+
+	void drawBall(short x, short y) {
 	setCursor(x + 2, y + 2);
 	printf("%c", 111);
 }
+*/
 
 /*
 	Delete the passed position
@@ -102,4 +105,18 @@ void drawBall(short x, short y) {
 void drawBlankSpace(short x, short y) {
 	setCursor(x + 2, y + 2);
 	printf("%c", 32);
+}
+
+
+void updateBallOnScreen(struct Vector *currentPosition , struct Vector *nextPosition){
+	// Draw next position
+	setCursor(roundToShort(nextPosition->x) + 2, roundToShort(nextPosition->y) + 2);
+	printf("%c", 111);
+
+	// Erase last postion by drawing a blank space
+	setCursor(roundToShort(currentPosition->x) + 2, roundToShort(currentPosition->y) + 2);
+	printf("%c", 32);
+
+	// set cursor in the corner
+	setCursor(1,1);
 }

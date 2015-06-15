@@ -32,11 +32,12 @@ void main() {
 
 	initTimer0();
 	while (1 == 1) { 
-		if (getTimer0() == 1000) {
-			
+		if (getTimer0() >= 1000) {
+			calculateNextPosition(&currentPosition,&direction,&nextPosition);	
 			updateBallOnScreen(&currentPosition,&nextPosition);
-			currentPosition = nextPosition;	
-			
+			currentPosition = nextPosition;
+
+		//	printf("%d",getTimer0());
 //			printf("%d\n", getTimer0());
 
 			

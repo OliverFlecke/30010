@@ -490,20 +490,9 @@ ptn_Child1=MainFrame
 ptn_Child2=ChildFrames
 
 [WorkState_v1_1.Frames.ChildFrames]
-ptn_Child1=Document-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-0]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-0.ViewFrame-0]
-DocPathName=FinalProject\main.c
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=True
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPBOPPPPPPAAAAAAAAAAAAAAAAGBEAAAAAGEBAAAAA
 
 [WorkState_v1_1.Frames.MainFrame]
-Title=FinalProject -- ZDS II - Z8 Encore! Family -- main.c - [main.c]
+Title=FinalProject2 -- ZDS II - Z8 Encore! Family
 WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPCIAAAAAACIAAAAAADIEAAAAAPICAAAAA
 
 [WorkState_v1_1.ToolBarMgr]
