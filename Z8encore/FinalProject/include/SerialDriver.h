@@ -21,12 +21,14 @@ void setColor(short fg, short bg);
 
 // Draw game element functions
 void drawBoundaries();
-void drawStriker(char direction);
+void drawStriker(char strikerWidth, unsigned char strikerPosition, char direction);
 void updateBallOnScreen(struct Vector *currentPostion , struct Vector *nextPostion);
 
 
 //void drawBall(short x, short y);
 void drawBlankSpace(short x, short y);
 
+void initSerial();
+void homeCursor();
 
 #endif

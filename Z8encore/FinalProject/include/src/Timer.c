@@ -45,3 +45,7 @@ void initTimer0() {
 	// Enable timer
 	T0CTL |= 0x80;	
 }
+
+void stopTimer0() {
+	T0CTL = 0;
+}

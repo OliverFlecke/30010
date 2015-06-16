@@ -28,7 +28,7 @@ void main() {
 			showBinaryDisplay0(keyCounter);
 
 			bounceCount = getCounter0();
-			while( ((PDIN & 0x08) == 0) || (bounceCount > getCounter0() - 9 )){ 	// Delay to avoid bounce (100 ms) and while key is pressed
+			while( ((PDIN & 0x08) == 0) || (bounceCount > getCounter0() - 5 )){ 	// Delay to avoid bounce (100 ms) and while key is pressed
 			}
 		}
 	}	

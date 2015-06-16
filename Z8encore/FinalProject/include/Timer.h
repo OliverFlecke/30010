@@ -9,4 +9,6 @@ void isr_timer0();
 short getTimer0();
 void resetTimer0();
 
+void stopTimer0();
+
 #endif

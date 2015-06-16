@@ -10,7 +10,7 @@ void printFixedPoint1616(long i) {
 		i = ~i+1;
 	}
 
-	printf("%ld.%04ld\n\n", i >> 16, 10000 * (unsigned long) (i & 0xffff) >> 16);
+	printf("%ld.%04ld", i >> 16, 10000 * (unsigned long) (i & 0xffff) >> 16);
 }
 
 /*
@@ -25,11 +25,7 @@ long convert1814(long i) {
 	Converts 18.14 format to 16.16
 */
 long convert1616(long i) {
-/*	if ((i & 0x80000000) != 0) {
-		i = i & 0x7FFFFFFF;
-		return (i << 2) | 0xFFFF0000;
-	} else
-*/		return i << 2;
+	return i << 2;
 }
 
 

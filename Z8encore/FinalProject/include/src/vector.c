@@ -1,4 +1,5 @@
 #include "vector.h"
+#include <sio.h>
 
 
 void initVector(struct Vector *v) {
@@ -11,9 +12,11 @@ void initVector(struct Vector *v) {
 	Rotates a vetor by the passed angle 
 */
 void rotate(struct Vector *v, signed short phi) {
-	long temp = (v->x) * cos(phi) - (v->y) * sin(phi);
-	v->y = ((v->x) * sin(phi) + (v->y) * cos(phi));
-	v->x = temp;
+	long temp;
+	
+	temp = ((v->x) >> 2) * (cos(phi) >> 2) - ((v->y) >> 2) * (sin(phi) >> 2);
+	v->y = ((v->x) >> 2) * (sin(phi) >> 2) + ((v->y) >> 2) * (cos(phi) >> 2) >> 12;
+	v->x = temp >> 12;
 }
 
 

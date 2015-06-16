@@ -46,10 +46,18 @@ clean:
             del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\zsldevinit.obj
 	@if exist C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\main.obj  \
             del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\main.obj
+	@if exist C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\game.obj  \
+            del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\game.obj
+	@if exist C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\keyDriver.obj  \
+            del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\keyDriver.obj
+	@if exist C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\numberformat.obj  \
+            del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\numberformat.obj
 	@if exist C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\SerialDriver.obj  \
             del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\SerialDriver.obj
 	@if exist C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\Timer.obj  \
             del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\Timer.obj
+	@if exist C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\trigonometry.obj  \
+            del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\trigonometry.obj
 	@if exist C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\vector.obj  \
             del C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\vector.obj
 
@@ -62,8 +70,12 @@ LIBS =
 OBJS =  \
             C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\zsldevinit.obj  \
             C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\main.obj  \
+            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\game.obj  \
+            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\keyDriver.obj  \
+            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\numberformat.obj  \
             C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\SerialDriver.obj  \
             C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\Timer.obj  \
+            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\trigonometry.obj  \
             C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\vector.obj
 
 FinalProject: $(OBJS)
@@ -91,10 +103,63 @@ C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\F
             C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
             C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\SERIAL~1.H  \
             C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\Timer.h  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\game.h  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\KEYDRI~1.H  \
             C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\NUMBER~1.H  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\Timer.h  \
             C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\TRIGON~1.H  \
             C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\vector.h
 	 $(CC)  $(CFLAGS) C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\main.c
+
+C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\game.obj :  \
+            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include\src\game.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\dmadefs.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\ez8.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\gpio.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\SERIAL~1.H  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\Timer.h  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\game.h  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\KEYDRI~1.H  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\NUMBER~1.H  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\Timer.h  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\TRIGON~1.H  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\vector.h
+	 $(CC)  $(CFLAGS) C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include\src\game.c
+
+C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\keyDriver.obj :  \
+            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include\src\keyDriver.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\dmadefs.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\ez8.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\gpio.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\KEYDRI~1.H  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\Timer.h
+	 $(CC)  $(CFLAGS) C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include\src\keyDriver.c
+
+C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\numberformat.obj :  \
+            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include\src\numberformat.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\NUMBER~1.H
+	 $(CC)  $(CFLAGS) C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include\src\numberformat.c
 
 C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\SerialDriver.obj :  \
             C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include\src\SerialDriver.c  \
@@ -124,8 +189,31 @@ C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\F
             C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\Timer.h
 	 $(CC)  $(CFLAGS) C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include\src\Timer.c
 
+C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\trigonometry.obj :  \
+            C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include\src\trigonometry.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
+            C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\TRIGON~1.H
+	 $(CC)  $(CFLAGS) C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include\src\trigonometry.c
+
 C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\vector.obj :  \
             C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include\src\vector.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
             C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\NUMBER~1.H  \
             C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\TRIGON~1.H  \
             C:\Users\CHRIST~1\SkyDrive\DOCUME~1\DTU\PROGRA~1\30010\Z8encore\FINALP~1\include\vector.h

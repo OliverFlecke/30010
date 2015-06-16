@@ -89,11 +89,11 @@ const signed short SIN[512]=
 
 // Returns the value of sine(x) in the number format 16.16
 // Argument in degrees
-signed long sin(signed short x){
+signed long sin(signed long x){
 	x = (x % 360) * 512/360;
 
-	//printf("%ld ", x);
-	if(x<0)
+	// printf("x=%ld ", x);
+	if(x < 0)
 		return ((signed long) -SIN[(-x)] ) << 2;	// return 16.16 format
 	else
 		return ((signed long) SIN[x] ) << 2;		// return 16.16 format
@@ -101,6 +101,6 @@ signed long sin(signed short x){
 
 // Returns the value of cosine(x) in the number format 16.16
 // Argument in degrees
-signed long cos(signed short x) {
+signed long cos(signed long x) {
 	return sin(x + 90);
 }
