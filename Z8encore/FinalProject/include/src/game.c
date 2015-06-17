@@ -1,17 +1,21 @@
 #include "game.h"
 
-short ballUpdatePeriodTime = 50;
-short strikerUpdatePeriod = 25;
+short ballUpdatePeriodTime = 40;
+short strikerUpdatePeriod = 20;
 short strikerPosition = WIDTH/2;
-char strikerWidth = 9;		// Must be an odd number
+char strikerWidth = 11;		// Must be an odd number
 short angle = 45;			// Start angle. Must match start direction vector
 long sqrt2half = 0xB504; // Binary form = 1011010100000100;
 
 long level[] = {
-	0, 0, 0x2AAAAAA8, 0, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0,
-	0, 0, 0, 0x4101040, 0, 0, 0, 0,
-	0, 0, 0, 0, 0, 0, 0, 0
+	0x000000000, 0x000000000, 0x02AAAAAA8, 0x000000000, 
+	0x004100410, 0x000000000, 0x003C003C0, 0x000000000, 
+	0x028A28A28, 0x014514514, 0x000000000, 0x0030C30C0, 
+	0x000000000, 0x014005554, 0x000000000, 0x000000000, 
+	0x000000000, 0x000000000, 0x000000000, 0x000000000, 
+	0x000000000, 0x000000000, 0x000000000, 0x000000000, 
+	0x000000000, 0x000000000, 0x000000000, 0x000000000, 
+	0x000000000, 0x000000000, 0x000000000, 0x000000000
 };
 
 /*
@@ -19,7 +23,7 @@ long level[] = {
 */
 void calculateNextPosition(struct Vector *position , struct Vector *direction , struct Vector *nextPosition){
 	nextPosition->x = position->x + direction->x;
-	nextPosition->y = position->y + direction->y;
+	nextPosition->y = position->y + ((direction->y) >> 1);	// times 1/2 for correction of the uneven pixel density of the console
 }
 
 void mainGame() {
@@ -32,8 +36,8 @@ void mainGame() {
 	initVector(&nextPosition);
 	direction.y = sqrt2half;
 	direction.x = sqrt2half;
-	// currentPosition.x = 67 << 16;
-	// currentPosition.y = 25 << 16;
+	currentPosition.x = 40 << 16;
+	currentPosition.y = 19 << 16;
 	setColor(36, 40);
 
 	clearScreen();
@@ -65,7 +69,7 @@ void mainGame() {
 			calculateNextPosition(&currentPosition,&direction,&nextPosition);	
 			updateDirectionOnCollision(&currentPosition,&direction,&nextPosition);
 
-			updateBallOnScreen(&currentPosition,&nextPosition);
+			updateBallOnScreen(&nextPosition);
 			currentPosition = nextPosition;
 		}
 	}
@@ -131,38 +135,37 @@ void updateDirectionOnCollision(struct Vector *position , struct Vector *directi
 	Draw game obstruction on the game grid
 */
 void drawObstructions() {
-	char i, j, k; 
-	long current;
+	char i, j;
 	// Loop through each row
-	for (i = 0; i < HEIGTH; i++) {
-		setCursor(2, i + 2);
-		current = level[i];
-
-		for (j = 30; j >= 0; j -= 2) {
-			if (((current >> j) & 0x3) == 0x3) 
-				for (k = 0; k < 8; k++) 
-					printf("%c", 219);
-			else if (((current >> j) & 0x2) == 0x2)
-				for (k = 0; k < 8; k++) 
-					printf("%c", 178);
-			else if (((current >> j) & 0x1) == 0x1)
-				for (k = 0; k < 8; k++)
-					printf("%c", 176);
-			else 
-				printf("        ");
-		}
-	}
+	for (i = 0; i < HEIGTH; i++) 
+		for (j = 30; j >= 0; j -= 2) 
+			drawSingleObstruction(i, j, level[i]);
 }
 
 /*
 
 */
 void obstuctionCollision(struct Vector *position , struct Vector *direction , struct Vector *nextPosition) {
-	long row = level[roundToShort(nextPosition->y)];			// Get the row in the level grid
-	row = row >> (30 - ((roundToShort(nextPosition->x) >> 3) << 1)); 	// Divide by 8 to get the correct block. Times 2 to get the correct number of bitshifts 
+	char arrayPosition = roundToShort(nextPosition->y); 
+	char bitPosition = (30 - ((roundToShort(nextPosition->x) >> 3) << 1)); 	// Divide by 8 to get the correct block. Times 2 to get the correct number of bitshifts 
+	
+	long row = level[arrayPosition];						// Get the row in the level grid
+	row = row >> bitPosition;
 
 	if ((row & 0x3) != 0) {
-		direction->y = -direction->y; 
+		direction->y = -direction->y;
 		calculateNextPosition(position, direction, nextPosition);
+
+		updateObstructionOnHit((row & 0x3) , arrayPosition, bitPosition);
+	}
+}
+
+void updateObstructionOnHit(char value, char arrayPosition, long bitPosition){
+	if(value > 2 || value < 1){
+		// solid block, do nothing
+	}
+	else {
+		level[arrayPosition] -= 1 << bitPosition;	// subtract 1 from the value of the hit obstruction's "life"
+		drawSingleObstruction(arrayPosition, bitPosition, level[arrayPosition]);
 	}
 }

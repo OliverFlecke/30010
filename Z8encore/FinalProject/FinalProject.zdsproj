@@ -8,10 +8,10 @@
 <file filter-key="">include\src\game.c</file>
 <file filter-key="">include\src\keyDriver.c</file>
 <file filter-key="">include\src\numberformat.c</file>
-<file filter-key="">include\src\SerialDriver.c</file>
-<file filter-key="">include\src\Timer.c</file>
 <file filter-key="">include\src\trigonometry.c</file>
 <file filter-key="">include\src\vector.c</file>
+<file filter-key="">include\src\serialDriver.c</file>
+<file filter-key="">include\src\timer.c</file>
 </files>
 
 <!-- configuration information -->

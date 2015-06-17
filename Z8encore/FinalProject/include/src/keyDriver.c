@@ -4,7 +4,7 @@
 	Setup key PD3 - Left key
 */
 void initKeyPD3() {
-	PDDD = 0x08; 	// Bit 4 set to input	
+	PDCTL |= 0x08; 	// Bit 4 set to input	
 	PDADDR = 0;		// Protection of port D
 }
 
@@ -12,7 +12,7 @@ void initKeyPD3() {
 	Setup key PF6 - Right key
 */
 void initKeyPF6() {
-	PFDD = 0x40; 	// Bit 7 set to input
+	PFCTL |= 0x40; 	// Bit 7 set to input
 	PFADDR = 0;		// Protection of port F
 }
 
@@ -20,7 +20,7 @@ void initKeyPF6() {
 	Setop key PF7
 */
 void initKeyPF7() {
-	PFDD = 0x80; 	// Bit 8 set to input
+	PFCTL |= 0x80; 	// Bit 8 set to input
 	PFADDR = 0; 	// Protection of port F
 }
 
@@ -37,7 +37,7 @@ void initKeys() {
 	Check if left key is pressed
 */
 char isLeftKeyPressed() {
-	if ((PDIN & 0x08) == 0)
+	if ((PFIN & 0x40) == 0)
 		return 1;
 	else 
 		return 0;

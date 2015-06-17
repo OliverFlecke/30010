@@ -11,6 +11,14 @@
 #define height 32
 #define width 128
 
+// Colors
+#define solidColor 36
+#define block2LifeColor 32
+#define block1LifeColor 31
+#define strikerColor 35
+#define ballColor 37
+#define backgroundColor 40
+
 // Functions
 void clearScreen();
 void clearLine();
@@ -22,8 +30,9 @@ void setColor(short fg, short bg);
 // Draw game element functions
 void drawBoundaries();
 void drawStriker(char strikerWidth, unsigned char strikerPosition, char direction);
-void updateBallOnScreen(struct Vector *currentPostion , struct Vector *nextPostion);
+void updateBallOnScreen(struct Vector *nextPostion);
 
+void drawSingleObstruction(char arrayPosition, long bitPosition, long current);
 
 //void drawBall(short x, short y);
 void drawBlankSpace(short x, short y);

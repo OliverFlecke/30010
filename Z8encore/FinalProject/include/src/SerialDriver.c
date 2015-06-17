@@ -35,6 +35,8 @@ void setColor(short fg, short bg) {
 */
 void drawBoundaries() {
 	short i;
+	setColor(solidColor, backgroundColor);
+
 	setCursor(1, 1);
 	printf("%c", 220);	// Print upperleft corner
 	for (i = 1; i <= width; i++){
@@ -58,6 +60,7 @@ void drawBoundaries() {
 void drawStriker(char strikerWidth, unsigned char strikerPosition, char direction) {
 	char i; 
 
+	setColor(strikerColor, backgroundColor);
 	if (direction == 1) {		// Move the striker right
 		// Delete the left most character
 		drawBlankSpace(strikerPosition - strikerWidth/2, height - 1);
@@ -90,21 +93,60 @@ void drawBlankSpace(short x, short y) {
 	printf("%c", 32);
 }
 
+short ball[8][2];
 /*
 	Update the balls position in the game
 */
-void updateBallOnScreen(struct Vector *currentPosition , struct Vector *nextPosition){
-	// Draw next position
-	setCursor(roundToShort(nextPosition->x) + 2, roundToShort(nextPosition->y) + 2);
-	printf("%c", 111);
-
-	// Erase last postion by drawing a blank space
-	setCursor(roundToShort(currentPosition->x) + 2, roundToShort(currentPosition->y) + 2);
+void updateBallOnScreen(struct Vector *nextPosition){
+	char i;
+	// Delete the last ball position from the array
+	setCursor(ball[7][0] + 2, ball[7][1] + 2);
 	printf("%c", 32);
+
+	// Update the array
+	for (i = 6; i >= 0; i--) {
+		ball[i + 1][0] = ball[i][0];
+		ball[i + 1][1] = ball[i][1];
+	}
+	// Set the new position at the end of the array
+	ball[0][0] = roundToShort(nextPosition->x);
+	ball[0][1] = roundToShort(nextPosition->y);
+
+	// Draw new position
+	setColor(ballColor, backgroundColor);
+	setCursor(ball[0][0] + 2, ball[0][1]+ 2);
+	printf("%c", 219);
 
 	// set cursor in the corner
 	homeCursor();
 }
+
+/*
+	Draw an obstruction at the passed position
+*/
+void drawSingleObstruction(char arrayPosition, long bitPosition, long current) {
+	char k;
+	setCursor(((30 - bitPosition) << 2) + 2 , arrayPosition + 2);
+
+	if (((current >> bitPosition) & 0x3) == 0x3) {
+		setColor(solidColor, backgroundColor);
+		for (k = 0; k < 8; k++) 
+			printf("%c", 219);
+	}
+	else if (((current >> bitPosition) & 0x2) == 0x2) {
+		setColor(block2LifeColor, backgroundColor);
+		for (k = 0; k < 8; k++) 
+			printf("%c", 178);
+	}
+	else if (((current >> bitPosition) & 0x1) == 0x1) {
+		setColor(block1LifeColor, backgroundColor);
+		for (k = 0; k < 8; k++)
+			printf("%c", 176);
+	}
+	else 
+		printf("        ");
+}
+
 
 /*
 	Setup serial communication

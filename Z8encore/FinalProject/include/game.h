@@ -4,8 +4,8 @@
 // Libraries
 #include "vector.h"	
 #include "numberformat.h"
-#include "Timer.h"
-#include "SerialDriver.h"
+#include "timer.h"
+#include "serialDriver.h"
 #include "keyDriver.h"
 #include "trigonometry.h"
 
@@ -18,6 +18,7 @@ void calculateNextPosition(struct Vector *postition , struct Vector *direction ,
 void drawObstructions();
 void obstuctionCollision(struct Vector *position , struct Vector *direction , struct Vector *nextPosition);
 void updateDirectionOnCollision(struct Vector *postition , struct Vector *direction , struct Vector *nextPosition);
+void updateObstructionOnHit(char value, char arrayPosition, long bitPosition);
 void mainGame();
 
 #endif
