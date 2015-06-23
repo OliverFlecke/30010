@@ -52,15 +52,15 @@ void main() {
 		}
 	}	
 
-	initTimer0();
+	//initTimer0();
 	while(1 == 1) {		
 		for (i = 0; i < 5; i++) {
 			for (j = 0; j < 5; j++) 
 				updateDisplay(j, i, j);
 		}
-		if (getCounter0() > scrollCounter + 10 ) {
+	/*	if (getCounter0() > scrollCounter + 10 ) {
 			scrollCounter = getCounter0();
 			scrollVideoBuffer();
-		}
+		}*/
 	}	
 }

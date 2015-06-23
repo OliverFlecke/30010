@@ -37,7 +37,7 @@ void initKeys() {
 	Check if left key is pressed
 */
 char isLeftKeyPressed() {
-	if ((PFIN & 0x40) == 0)
+	if ((PDIN & 0x08) == 0)
 		return 1;
 	else 
 		return 0;
@@ -48,6 +48,13 @@ char isLeftKeyPressed() {
 */
 char isRightKeyPressed() {
 	if ((PFIN & 0x80) == 0) 
+		return 1;
+	else 
+		return 0;
+}
+
+char isEnterKeyPressed(){
+	if ((PFIN & 0x40) == 0)
 		return 1;
 	else 
 		return 0;

@@ -5,13 +5,14 @@
 <files>
 <file filter-key="">.\zsldevinit.asm</file>
 <file filter-key="">.\main.c</file>
+<file filter-key="">include\src\displayDriver.c</file>
 <file filter-key="">include\src\game.c</file>
 <file filter-key="">include\src\keyDriver.c</file>
 <file filter-key="">include\src\numberformat.c</file>
-<file filter-key="">include\src\trigonometry.c</file>
-<file filter-key="">include\src\vector.c</file>
 <file filter-key="">include\src\serialDriver.c</file>
 <file filter-key="">include\src\timer.c</file>
+<file filter-key="">include\src\trigonometry.c</file>
+<file filter-key="">include\src\vector.c</file>
 </files>
 
 <!-- configuration information -->
@@ -79,7 +80,7 @@
 <option name="shortsize" type="integer" change-action="rebuild">16</option>
 <option name="stdinc" type="string" change-action="compile"></option>
 <option name="strict" type="boolean" change-action="compile">true</option>
-<option name="usrinc" type="string" change-action="compile">C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include</option>
+<option name="usrinc" type="string" change-action="compile">C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include;C:\Users\Christian\SkyDrive\Documents\DTU\Programmeringsprojekt\30010\Z8encore\FinalProject\include</option>
 <option name="watch" type="boolean" change-action="none">false</option>
 </options>
 </tool>
@@ -99,7 +100,7 @@
 <option name="offset" type="integer" change-action="none">0</option>
 <option name="snenable" type="boolean" change-action="none">false</option>
 <option name="sn" type="string" change-action="none">000000000000000000000000</option>
-<option name="snsize" type="integer" change-action="none">1</option>
+<option name="snsize" type="integer" change-action="none">0</option>
 <option name="snstep" type="integer" change-action="none">000000000000000000000000</option>
 <option name="snstepformat" type="integer" change-action="none">0</option>
 <option name="snaddress" type="string" change-action="none">0</option>

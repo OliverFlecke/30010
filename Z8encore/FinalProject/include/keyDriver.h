@@ -13,4 +13,5 @@ void initKeys();
 
 char isLeftKeyPressed();
 char isRightKeyPressed();
+char isEnterKeyPressed();
 #endif
