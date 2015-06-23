@@ -168,7 +168,7 @@ char drawSingleObstruction(char arrayPosition, long bitPosition, long current) {
 void drawGameStats(unsigned char health, unsigned long obstructions) {
 	setColor(redTextColor, backgroundColor);\
 	setCursor(24, 33);
-	printf("%d", obstructions);
+	printf("%04d", obstructions);
 
 	setCursor(38, 33);
 	printf("%d", health);
@@ -186,5 +186,5 @@ void initSerial() {
 	Set the cursor at the default position
 */
 void homeCursor() {
-	setCursor(1,1);
+	setCursor(1,31);
 }

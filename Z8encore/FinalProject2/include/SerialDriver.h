@@ -19,6 +19,8 @@
 #define ballColor 37
 #define backgroundColor 40
 #define redTextColor 31
+#define blueTextColor 36
+#define greenTextColor 32
 
 // Functions
 void clearScreen();

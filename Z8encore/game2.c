@@ -7,7 +7,6 @@ unsigned long score = 0;
 unsigned char health;
 char displayCol = 0;
 char game = 0;
-char chosenLevel = 1;
 long level[32];
 long obstructionsRemaining;
 
@@ -21,8 +20,9 @@ void calculateNextPosition(struct Vector *position , struct Vector *direction , 
 
 void mainGame() {
 	// Game variables 
+	char chosenLevel = 1;
 	const unsigned char menuKeyDebounce = 150;
-	short ballUpdatePeriodTime = 30;
+	short ballUpdatePeriodTime = 40;
 	short strikerUpdatePeriod = 10;
 	short displayUpdatePeriod = 1;
 	short videoBufferUpdate = 1000;
@@ -295,6 +295,8 @@ void updateDirectionOnCollision(struct Vector *position , struct Vector *directi
 			}
 		}
 
+		setCursor(2, 5);
+		printf("%d", angle);
 		// Calculate the next position based on the new direction
 		calculateNextPosition(position, direction, nextPosition);
 	}
@@ -342,13 +344,10 @@ void updateObstructionOnHit(char value, char arrayPosition, long bitPosition){
 			clearScreen();
 			setColor(blueTextColor, backgroundColor);
 			drawBoundaries();
-			setCursor(54, 6);
+			setCursor(50, 8);
 			setColor(greenTextColor, backgroundColor);
-			printf("****** YOU WON! *******");
-			setCursor(48, 8);
-			printf("Press enter to start the next level");
+			printf("********** YOU WON! ***********");
 			game = 0;
-			chosenLevel++;
 		}
 	}
 }
@@ -360,38 +359,111 @@ void obstuctionCollision(struct Vector *currentPosition , struct Vector *directi
 	char neighbourObstruction = 0;
 	short x = (unsigned short) (currentPosition->x >> 1);	// 1.15 format
 	short y = (unsigned short) (currentPosition->y >> 1);	// 1.15 format
-	long dx = (direction->x) & ~(1 << 31);
-	long dy = (direction->y) & ~(1 << 31);
 	char arrayPosition = roundToShort(nextPosition->y); 
 	char bitPosition = (30 - ((roundToShort(nextPosition->x) >> 3) << 1)); 	// Divide by 8 to get the correct block. Times 2 to get the correct number of bitshifts 
 	
 	long row = level[arrayPosition];						// Get the row in the level grid
 
 	// check wether or not the next position contains an obstruction
-	if (((row >> bitPosition) & 0x3) != 0){
+	if(((row >> bitPosition) & 0x3) != 0){
 
-		if (roundToShort(nextPosition->x) % 8 == 0) {
-			if (roundToShort(currentPosition->x) % 8 == 7 
-				&& roundToShort(currentPosition->y) == roundToShort(nextPosition->y)) { 
-				direction->x = -direction->x;
+		setCursor(0, 1);
+		printf("x: %ld     %ld     ", currentPosition->x >> 16 , currentPosition->y >> 16);
+		setCursor(0, 2);
+		printf("                 ");
+		setCursor(0, 2);
+
+		// if another obstruction exists on the side, from which the ball is coming, the ball must hit either top or bottom of the obstruction, and hence the y-coordinate is flipped
+		if (bitPosition > 2)							// if there is space for a neighbour obstruction on the right side within the game area
+			if (((row >> bitPosition-2) & 0x3) !=0)	// check for neighbour obstruction on the right side
+				neighbourObstruction |= 0x1;		// set flag
+
+		if (bitPosition < 28)						// if there is space for a neighbour obstruction on the left side within the game area
+			if (((row >> bitPosition+2) & 0x3) != 0)	// check for neighbour obstruction on the left side
+				neighbourObstruction |= 0x2;		//set flag
+		
+
+
+		if ( ((neighbourObstruction & 0x1) != 0) && (direction->x < 0) ) {		// if an obstruction exists on the right side and the direction is from right to left
+			direction->y = -direction->y;		// flip y-coordinate
+			printf("right neighbour");
+		}
+		else if ( ((neighbourObstruction & 0x2) != 0) && (direction->x > 0)) {	// if an obstruction exists on the left side and the direction is from left to right
+			direction->y = -direction->y;		// flip y-coordinate
+			printf("left obstruction");
+		}
+		// if the obstruction has no neighbour obstructions, it must be checked wether or not the ball has collided with the obstruction's side or top/bottom
+		else if ( (((30-bitPosition) << 2) <= (currentPosition->x) >> 16) && (((30-bitPosition) << 2)+8 >= (currentPosition->x)>>16) ) {
+			direction->y = -direction->y;		// flip y-coordinate
+			printf("Top and bottom");		
+		}
+		else if (arrayPosition == ((currentPosition->y)>>16) + 1) {
+			direction->x = - direction->x;		// flip x-coordinate
+			printf("Sides");
+		}
+
+		//
+		//	Collision check when moving towards the cornors. 
+		//
+		// From below right
+		else if ( (direction->x < 0) && (direction->y < 0) && (neighbourObstruction & 0x1) != 0) {	// x negative, y negative
+			printf("below right ");
+			if(x<y) {
+				direction->y = -direction->y;
+				printf("below right y");
 			}
 			else {
-				direction->y = -direction->y;
-			}
-		} 
-		else if (roundToShort(nextPosition->x) % 8 == 7) {
-			if (roundToShort(currentPosition->x) % 8 == 0 
-				&& roundToShort(currentPosition->y) == roundToShort(nextPosition->y)) { 
 				direction->x = -direction->x;
-			}
-			else {
-				direction->y = -direction->y;
+				printf("below right x");
 			}
 		}
-		else {
-			direction->y = -direction->y;
+		// From above right 
+		else if ( (direction->x < 0) && (direction->y > 0) && (neighbourObstruction & 0x1) != 0) {	// x negative, y postive
+			printf("above right ");
+			if(x < (1<<15) - y) {
+				direction->y = -direction->y;
+				printf("above right y");
+			}
+			else{
+				direction->x = -direction->x;
+				printf("above right x");
+			}
+		}
+		// From above left
+		else if ( (direction->x > 0) && (direction->y > 0) && (neighbourObstruction & 0x2) != 0) {	// x postive, y positive
+			if(x>y){
+				direction->y = -direction->y;
+				printf("above left y");
+			}
+			else {
+				direction->x = -direction->x;
+				printf("above left x");
+			}
+		}
+		// From below left
+		else if ( (direction->x > 0) && (direction->y < 0) && (neighbourObstruction & 0x2) != 0) {	// x positive, y negative
+			if(x > (1<<15) - y) {
+				direction->y = -direction->y;
+				printf("below left y");
+			}
+			else {
+				direction->x = -direction->x;
+				printf("below left x");
+			}
+		} else {
+			printf("nothing happend");
 		}
 		calculateNextPosition(currentPosition, direction, nextPosition);
 		updateObstructionOnHit(((row >> bitPosition) & 0x3) , arrayPosition, bitPosition);
+	}
+}
+
+/*
+	Move data from ROM into RAM
+*/
+void loadLevelFromROM(long rom *src, long *dest){
+	char i;
+	for (i=0; i<31; i++){
+		*dest++ = *src++;
 	}
 }

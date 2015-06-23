@@ -13,6 +13,7 @@
 <file filter-key="">include\src\Timer.c</file>
 <file filter-key="">include\src\trigonometry.c</file>
 <file filter-key="">include\src\vector.c</file>
+<file filter-key="">include\src\level.c</file>
 </files>
 
 <!-- configuration information -->

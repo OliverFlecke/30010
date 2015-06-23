@@ -62,6 +62,8 @@ clean:
             del M:\Documents\GitHub\30010\Z8encore\FinalProject2\trigonometry.obj
 	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\vector.obj  \
             del M:\Documents\GitHub\30010\Z8encore\FinalProject2\vector.obj
+	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\level.obj  \
+            del M:\Documents\GitHub\30010\Z8encore\FinalProject2\level.obj
 
 rebuildall: clean Debug
 
@@ -79,7 +81,8 @@ OBJS =  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\SerialDriver.obj  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\Timer.obj  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\trigonometry.obj  \
-            M:\Documents\GitHub\30010\Z8encore\FinalProject2\vector.obj
+            M:\Documents\GitHub\30010\Z8encore\FinalProject2\vector.obj  \
+            M:\Documents\GitHub\30010\Z8encore\FinalProject2\level.obj
 
 FinalProject2: $(OBJS)
 	 $(LINK)  @M:\Documents\GitHub\30010\Z8encore\FinalProject2\FinalProject2_Debug.linkcmd
@@ -244,4 +247,9 @@ M:\Documents\GitHub\30010\Z8encore\FinalProject2\vector.obj :  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TRIGON~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\vector.h
 	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\vector.c
+
+M:\Documents\GitHub\30010\Z8encore\FinalProject2\level.obj :  \
+            M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\level.c  \
+            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\level.h
+	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\level.c
 
