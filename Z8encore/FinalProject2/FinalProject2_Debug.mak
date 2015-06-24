@@ -54,16 +54,16 @@ clean:
             del M:\Documents\GitHub\30010\Z8encore\FinalProject2\keyDriver.obj
 	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\numberformat.obj  \
             del M:\Documents\GitHub\30010\Z8encore\FinalProject2\numberformat.obj
-	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\SerialDriver.obj  \
-            del M:\Documents\GitHub\30010\Z8encore\FinalProject2\SerialDriver.obj
-	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\Timer.obj  \
-            del M:\Documents\GitHub\30010\Z8encore\FinalProject2\Timer.obj
 	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\trigonometry.obj  \
             del M:\Documents\GitHub\30010\Z8encore\FinalProject2\trigonometry.obj
 	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\vector.obj  \
             del M:\Documents\GitHub\30010\Z8encore\FinalProject2\vector.obj
 	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\level.obj  \
             del M:\Documents\GitHub\30010\Z8encore\FinalProject2\level.obj
+	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\timerDriver.obj  \
+            del M:\Documents\GitHub\30010\Z8encore\FinalProject2\timerDriver.obj
+	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\serialDriver.obj  \
+            del M:\Documents\GitHub\30010\Z8encore\FinalProject2\serialDriver.obj
 
 rebuildall: clean Debug
 
@@ -78,11 +78,11 @@ OBJS =  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\game.obj  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\keyDriver.obj  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\numberformat.obj  \
-            M:\Documents\GitHub\30010\Z8encore\FinalProject2\SerialDriver.obj  \
-            M:\Documents\GitHub\30010\Z8encore\FinalProject2\Timer.obj  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\trigonometry.obj  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\vector.obj  \
-            M:\Documents\GitHub\30010\Z8encore\FinalProject2\level.obj
+            M:\Documents\GitHub\30010\Z8encore\FinalProject2\level.obj  \
+            M:\Documents\GitHub\30010\Z8encore\FinalProject2\timerDriver.obj  \
+            M:\Documents\GitHub\30010\Z8encore\FinalProject2\serialDriver.obj
 
 FinalProject2: $(OBJS)
 	 $(LINK)  @M:\Documents\GitHub\30010\Z8encore\FinalProject2\FinalProject2_Debug.linkcmd
@@ -114,7 +114,7 @@ M:\Documents\GitHub\30010\Z8encore\FinalProject2\main.obj :  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\level.h  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\NUMBER~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\SERIAL~1.H  \
-            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\timer.h  \
+            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TIMERD~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TRIGON~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\vector.h
 	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\main.c
@@ -159,7 +159,7 @@ M:\Documents\GitHub\30010\Z8encore\FinalProject2\game.obj :  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\level.h  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\NUMBER~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\SERIAL~1.H  \
-            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\timer.h  \
+            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TIMERD~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TRIGON~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\vector.h
 	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\game.c
@@ -173,62 +173,16 @@ M:\Documents\GitHub\30010\Z8encore\FinalProject2\keyDriver.obj :  \
             C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
             C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\KEYDRI~1.H  \
-            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\timer.h
+            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TIMERD~1.H
 	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\keyDriver.c
 
 M:\Documents\GitHub\30010\Z8encore\FinalProject2\numberformat.obj :  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\numberformat.c  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\NUMBER~1.H
 	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\numberformat.c
 
-M:\Documents\GitHub\30010\Z8encore\FinalProject2\SerialDriver.obj :  \
-            M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\SerialDriver.c  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
-            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\NUMBER~1.H  \
-            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\SERIAL~1.H  \
-            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TRIGON~1.H  \
-            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\vector.h
-	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\SerialDriver.c
-
-M:\Documents\GitHub\30010\Z8encore\FinalProject2\Timer.obj :  \
-            M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\Timer.c  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\dmadefs.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\ez8.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\gpio.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
-            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\timer.h
-	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\Timer.c
-
 M:\Documents\GitHub\30010\Z8encore\FinalProject2\trigonometry.obj :  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\trigonometry.c  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TRIGON~1.H
 	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\trigonometry.c
 
@@ -243,4 +197,32 @@ M:\Documents\GitHub\30010\Z8encore\FinalProject2\level.obj :  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\level.c  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\level.h
 	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\level.c
+
+M:\Documents\GitHub\30010\Z8encore\FinalProject2\timerDriver.obj :  \
+            M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\timerDriver.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\dmadefs.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\ez8.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\gpio.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
+            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TIMERD~1.H
+	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\timerDriver.c
+
+M:\Documents\GitHub\30010\Z8encore\FinalProject2\serialDriver.obj :  \
+            M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\serialDriver.c  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
+            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
+            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\NUMBER~1.H  \
+            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\SERIAL~1.H  \
+            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TRIGON~1.H  \
+            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\vector.h
+	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\serialDriver.c
 

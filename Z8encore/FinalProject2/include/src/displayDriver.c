@@ -122,6 +122,9 @@ void updateDisplay(char character, char col, char display) {
 	clockDisplay(display);
 }
 
+/*
+	Convert a number in miliseconds into displaying seconds in the video buffer
+*/
 void insertInVideoBuffer(long value){
 	short i,j,tempDigit;
 

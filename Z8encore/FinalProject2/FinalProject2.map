@@ -4,7 +4,7 @@ Copyright (C) 1999-2004 ZiLOG, Inc. All Rights Reserved
 
 LINK MAP:
 
-DATE:      Wed Jun 24 13:00:37 2015
+DATE:      Wed Jun 24 16:37:45 2015
 PROCESSOR: assembler
 FILES:     C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\startupL.obj
            .\zsldevinit.obj
@@ -12,10 +12,10 @@ FILES:     C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\startupL.obj
            .\displayDriver.obj
            .\game.obj             .\keyDriver.obj        
            .\numberformat.obj
-           .\SerialDriver.obj
-           .\Timer.obj            
            .\trigonometry.obj
            .\vector.obj           .\level.obj            
+           .\timerDriver.obj
+           .\serialDriver.obj
            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\crtrevaaLDD.lib
            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\fpdumyL.obj
            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\zslLYD.lib
@@ -88,7 +88,7 @@ define _zsl_g_clock_xdefine = 18432000
 /* Set frequency to 18432000 Hz */
 define __user_frequency = 18432000
 
-"M:\Documents\GitHub\30010\Z8encore\FinalProject2\FinalProject2"=  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\startupL.obj,  .\zsldevinit.obj,  .\main.obj,  .\displayDriver.obj,  .\game.obj,  .\keyDriver.obj,  .\numberformat.obj,  .\SerialDriver.obj,  .\Timer.obj,  .\trigonometry.obj,  .\vector.obj,  .\level.obj,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\crtrevaaLDD.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\fpdumyL.obj,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\zslLYD.lib
+"M:\Documents\GitHub\30010\Z8encore\FinalProject2\FinalProject2"=  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\startupL.obj,  .\zsldevinit.obj,  .\main.obj,  .\displayDriver.obj,  .\game.obj,  .\keyDriver.obj,  .\numberformat.obj,  .\trigonometry.obj,  .\vector.obj,  .\level.obj,  .\timerDriver.obj,  .\serialDriver.obj,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\crtrevaaLDD.lib,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\std\fpdumyL.obj,  C:\PROGRA~2\ZiLOG\ZDSII_~1.3\lib\zilog\zslLYD.lib
 WARNING (909) (00000000 .\displayDriver.obj)--> Public symbol "_character_data" already externally defined.
 WARNING (909) (00000000 .\game.obj)--> Public symbol "_character_data" already externally defined.
 WARNING (909) (00000000 .\game.obj)--> Public symbol "_levelROM" already externally defined.
@@ -113,7 +113,7 @@ Space              Base        Top         Size
 ------------------ ----------- ----------- ---------
 EDATA                   E:0100      E:0B86      a87h
 RDATA                     R:E0        R:EF       10h
-ROM                     C:0000      C:5659     565ah
+ROM                     C:0000      C:5515     5516h
 
 
 SEGMENTS WITHIN SPACE:
@@ -133,35 +133,35 @@ workingreg         absolute data              R:E0        R:EF       10h
 ROM                Type                Base        Top         Size
 ------------------ ------------------- ----------- ----------- ---------
 __VECTORS          absolute data            C:0000      C:0037       38h
-_sputch_TEXT       normal data              C:4782      C:47B0       2fh
-_uputch_TEXT       normal data              C:4753      C:476B       19h
-abs_TEXT           normal data              C:47FE      C:483B       3eh
+_sputch_TEXT       normal data              C:4225      C:4253       2fh
+_uputch_TEXT       normal data              C:41F6      C:420E       19h
+abs_TEXT           normal data              C:42A1      C:42DE       3eh
 CODE               normal data              C:10B8      C:1361      2aah
-FAR_DATA           * segment copy *         C:4CB1      C:5659      9a9h
+FAR_DATA           * segment copy *         C:4B6D      C:5515      9a9h
 game_TEXT          normal data              C:1855      C:2FDA     1786h
-getfreq_TEXT       normal data              C:4296      C:42AC       17h
-ldriver_TEXT       normal data              C:3187      C:3ACD      947h
-level_TEXT         normal data              C:3F85      C:3FDF       5bh
+getfreq_TEXT       normal data              C:4152      C:4168       17h
+ldriver_TEXT       normal data              C:3555      C:3E9B      947h
+level_TEXT         normal data              C:3492      C:34EC       5bh
 main_TEXT          normal data              C:14FE      C:150A        dh
-mstring_TEXT       normal data              C:47B1      C:47FD       4dh
-nometry_TEXT       normal data              C:3B36      C:3C7C      147h
-nt_send_TEXT       normal data              C:40C2      C:4295      1d4h
-putch_TEXT         normal data              C:4B9A      C:4BF6       5dh
-reverse_TEXT       normal data              C:483C      C:4910       d5h
-rformat_TEXT       normal data              C:2FDB      C:3186      1ach
+mstring_TEXT       normal data              C:4254      C:42A0       4dh
+nometry_TEXT       normal data              C:3043      C:3189      147h
+nt_send_TEXT       normal data              C:3F7E      C:4151      1d4h
+putch_TEXT         normal data              C:4981      C:49DD       5dh
+rdriver_TEXT       normal data              C:34ED      C:3554       68h
+reverse_TEXT       normal data              C:4A98      C:4B6C       d5h
+rformat_TEXT       normal data              C:2FDB      C:3042       68h
 ROM_DATA           normal data              C:0038      C:10B7     1080h
 ROM_TEXT           normal data              C:1362      C:148C      12bh
-sio_TEXT           normal data              C:3FE0      C:40C1       e2h
+sio_TEXT           normal data              C:3E9C      C:3F7D       e2h
 startup            normal data              C:148D      C:14FD       71h
-strlen_TEXT        normal data              C:46C6      C:4707       42h
-t_putch_TEXT       normal data              C:476C      C:4781       16h
-teuart0_TEXT       normal data              C:4BF7      C:4CB0       bah
-timer_TEXT         normal data              C:3ACE      C:3B35       68h
-ultoa_TEXT         normal data              C:42AD      C:46C5      419h
-ustoa_TEXT         normal data              C:472C      C:4752       27h
-uultoa_TEXT        normal data              C:4911      C:4B99      289h
-uustoa_TEXT        normal data              C:4708      C:472B       24h
-vector_TEXT        normal data              C:3C7D      C:3F84      308h
+strlen_TEXT        normal data              C:4169      C:41AA       42h
+t_putch_TEXT       normal data              C:420F      C:4224       16h
+teuart0_TEXT       normal data              C:49DE      C:4A97       bah
+ultoa_TEXT         normal data              C:4568      C:4980      419h
+ustoa_TEXT         normal data              C:41CF      C:41F5       27h
+uultoa_TEXT        normal data              C:42DF      C:4567      289h
+uustoa_TEXT        normal data              C:41AB      C:41CE       24h
+vector_TEXT        normal data              C:318A      C:3491      308h
 ydriver_TEXT       normal data              C:150B      C:1854      34ah
 
 SEGMENTS WITHIN MODULES:
@@ -182,7 +182,7 @@ Module: ..\UART\COMMON\PUTCH.C (Library: zslLYD.lib) Version: 1:0 02/23/2005 13:
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: putch_TEXT                          C:4B9A      C:4BF6       5dh
+    Segment: putch_TEXT                          C:4981      C:49DD       5dh
 
 
 Module: ..\UART\COMMON\WRITEUART0.C (Library: zslLYD.lib) Version: 1:0 02/23/2005 13:32:38
@@ -190,10 +190,10 @@ Module: ..\UART\COMMON\WRITEUART0.C (Library: zslLYD.lib) Version: 1:0 02/23/200
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: FAR_DATA                            E:0B86      E:0B86        1h
-    Segment: teuart0_TEXT                        C:4BF7      C:4CB0       bah
+    Segment: teuart0_TEXT                        C:49DE      C:4A97       bah
 
 
-Module: .\MAIN.C (File: main.obj) Version: 1:0 06/24/2015 13:00:33
+Module: .\MAIN.C (File: main.obj) Version: 1:0 06/24/2015 16:37:43
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
@@ -206,7 +206,7 @@ Module: COMMON\ABS.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:08
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: abs_TEXT                            C:47FE      C:483B       3eh
+    Segment: abs_TEXT                            C:42A1      C:42DE       3eh
 
 
 Module: common\fpdumyl.asm (File: fpdumyL.obj) Version: 1:0 02/23/2005 13:22:38
@@ -236,35 +236,35 @@ Module: COMMON\PRINT_PUTCH.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: t_putch_TEXT                        C:476C      C:4781       16h
+    Segment: t_putch_TEXT                        C:420F      C:4224       16h
 
 
 Module: COMMON\PRINT_PUTROMSTRING.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:12
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: mstring_TEXT                        C:47B1      C:47FD       4dh
+    Segment: mstring_TEXT                        C:4254      C:42A0       4dh
 
 
 Module: COMMON\PRINT_SEND.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:12
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: nt_send_TEXT                        C:40C2      C:4295      1d4h
+    Segment: nt_send_TEXT                        C:3F7E      C:4151      1d4h
 
 
 Module: COMMON\PRINT_SPUTCH.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:11
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: _sputch_TEXT                        C:4782      C:47B0       2fh
+    Segment: _sputch_TEXT                        C:4225      C:4253       2fh
 
 
 Module: COMMON\PRINT_UPUTCH.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:11
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: _uputch_TEXT                        C:4753      C:476B       19h
+    Segment: _uputch_TEXT                        C:41F6      C:420E       19h
 
 
 Module: common\sbdiv.asm (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:19
@@ -279,7 +279,7 @@ Module: COMMON\SIO.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:13
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: FAR_DATA                            E:0B83      E:0B83        1h
-    Segment: sio_TEXT                            C:3FE0      C:40C1       e2h
+    Segment: sio_TEXT                            C:3E9C      C:3F7D       e2h
 
 
 Module: common\sldiv.asm (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:19
@@ -293,7 +293,7 @@ Module: COMMON\STRLEN.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: strlen_TEXT                         C:46C6      C:4707       42h
+    Segment: strlen_TEXT                         C:4169      C:41AA       42h
 
 
 Module: common\swdiv.asm (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:19
@@ -335,35 +335,35 @@ Module: COMMON\ULTOA.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: ultoa_TEXT                          C:42AD      C:46C5      419h
+    Segment: ultoa_TEXT                          C:4568      C:4980      419h
 
 
 Module: COMMON\UREVERSE.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:17
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: reverse_TEXT                        C:483C      C:4910       d5h
+    Segment: reverse_TEXT                        C:4A98      C:4B6C       d5h
 
 
 Module: COMMON\USTOA.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:18
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: ustoa_TEXT                          C:472C      C:4752       27h
+    Segment: ustoa_TEXT                          C:41CF      C:41F5       27h
 
 
 Module: COMMON\UULTOA.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:18
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: uultoa_TEXT                         C:4911      C:4B99      289h
+    Segment: uultoa_TEXT                         C:42DF      C:4567      289h
 
 
 Module: COMMON\UUSTOA.C (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:18
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: uustoa_TEXT                         C:4708      C:472B       24h
+    Segment: uustoa_TEXT                         C:41AB      C:41CE       24h
 
 
 Module: common\uwdiv.asm (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:19
@@ -377,10 +377,10 @@ Module: get_freq.asm (Library: crtrevaaLDD.lib) Version: 1:0 02/23/2005 13:27:19
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: getfreq_TEXT                        C:4296      C:42AC       17h
+    Segment: getfreq_TEXT                        C:4152      C:4168       17h
 
 
-Module: INCLUDE\SRC\DISPLAYDRIVER.C (File: displayDriver.obj) Version: 1:0 06/24/2015 12:50:15
+Module: INCLUDE\SRC\DISPLAYDRIVER.C (File: displayDriver.obj) Version: 1:0 06/24/2015 16:37:44
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
@@ -389,7 +389,7 @@ Module: INCLUDE\SRC\DISPLAYDRIVER.C (File: displayDriver.obj) Version: 1:0 06/24
     Segment: ydriver_TEXT                        C:150B      C:17DE      2d4h
 
 
-Module: INCLUDE\SRC\GAME.C (File: game.obj) Version: 1:0 06/24/2015 13:00:35
+Module: INCLUDE\SRC\GAME.C (File: game.obj) Version: 1:0 06/24/2015 16:37:45
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
@@ -400,7 +400,7 @@ Module: INCLUDE\SRC\GAME.C (File: game.obj) Version: 1:0 06/24/2015 13:00:35
     Segment: ROM_TEXT                            C:1362      C:144E       edh
 
 
-Module: INCLUDE\SRC\KEYDRIVER.C (File: keyDriver.obj) Version: 1:0 06/23/2015 12:47:53
+Module: INCLUDE\SRC\KEYDRIVER.C (File: keyDriver.obj) Version: 1:0 06/24/2015 16:37:45
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
@@ -411,48 +411,48 @@ Module: INCLUDE\SRC\LEVEL.C (File: level.obj) Version: 1:0 06/24/2015 12:57:30
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: level_TEXT                          C:3F85      C:3FDF       5bh
+    Segment: level_TEXT                          C:3492      C:34EC       5bh
     Segment: ROM_DATA                            C:0B38      C:10B7      580h
 
 
-Module: INCLUDE\SRC\NUMBERFORMAT.C (File: numberformat.obj) Version: 1:0 06/23/2015 12:47:53
+Module: INCLUDE\SRC\NUMBERFORMAT.C (File: numberformat.obj) Version: 1:0 06/24/2015 14:19:11
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: rformat_TEXT                        C:2FDB      C:3186      1ach
+    Segment: rformat_TEXT                        C:2FDB      C:3042       68h
 
 
-Module: INCLUDE\SRC\SERIALDRIVER.C (File: SerialDriver.obj) Version: 1:0 06/24/2015 13:00:36
+Module: INCLUDE\SRC\SERIALDRIVER.C (File: serialDriver.obj) Version: 1:0 06/24/2015 14:19:12
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: FAR_BSS                             E:019F      E:01BE       20h
-    Segment: ldriver_TEXT                        C:3187      C:3ACD      947h
+    Segment: ldriver_TEXT                        C:3555      C:3E9B      947h
     Segment: ROM_TEXT                            C:144F      C:148C       3eh
 
 
-Module: INCLUDE\SRC\TIMER.C (File: Timer.obj) Version: 1:0 06/23/2015 12:47:53
+Module: INCLUDE\SRC\TIMERDRIVER.C (File: timerDriver.obj) Version: 1:0 06/24/2015 16:36:44
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
     Segment: __VECTORS                           C:0000      C:000D        eh
-    Segment: FAR_DATA                            E:0781      E:0782        2h
-    Segment: timer_TEXT                          C:3ACE      C:3B35       68h
+    Segment: FAR_DATA                            E:0B81      E:0B82        2h
+    Segment: rdriver_TEXT                        C:34ED      C:3554       68h
 
 
-Module: INCLUDE\SRC\TRIGONOMETRY.C (File: trigonometry.obj) Version: 1:0 06/23/2015 12:47:54
-
-    Name                                        Base        Top      Size
-    --------------------------------------- ----------- ----------- ---------
-    Segment: FAR_DATA                            E:0783      E:0B82      400h
-    Segment: nometry_TEXT                        C:3B36      C:3C7C      147h
-
-
-Module: INCLUDE\SRC\VECTOR.C (File: vector.obj) Version: 1:0 06/24/2015 13:00:36
+Module: INCLUDE\SRC\TRIGONOMETRY.C (File: trigonometry.obj) Version: 1:0 06/24/2015 14:19:13
 
     Name                                        Base        Top      Size
     --------------------------------------- ----------- ----------- ---------
-    Segment: vector_TEXT                         C:3C7D      C:3F84      308h
+    Segment: FAR_DATA                            E:0781      E:0B80      400h
+    Segment: nometry_TEXT                        C:3043      C:3189      147h
+
+
+Module: INCLUDE\SRC\VECTOR.C (File: vector.obj) Version: 1:0 06/24/2015 14:19:13
+
+    Name                                        Base        Top      Size
+    --------------------------------------- ----------- ----------- ---------
+    Segment: vector_TEXT                         C:318A      C:3491      308h
 
 
 Module: M:\Documents\GitHub\30010\Z8encore\FinalProject2\zsldevinit.asm (File: zsldevinit.obj) Version: 1:0 06/23/2015 12:47:49
@@ -523,17 +523,17 @@ ___print_fmt                          E:01CF PRINT_GLOBALS   FAR_BSS
 ___print_leading_char                 E:01DB PRINT_GLOBALS   FAR_BSS                         
 ___print_len                          E:01DA PRINT_GLOBALS   FAR_BSS                         
 ___print_out                          E:01DC PRINT_GLOBALS   FAR_BSS                         
-___print_putch                        C:476C PRINT_PUTCH     t_putch_TEXT                    
-___print_putromstring                 C:47B1 PRINT_PUTROMSTR mstring_TEXT                    
-___print_send                         C:40C2 PRINT_SEND      nt_send_TEXT                    
-___print_sputch                       C:4782 PRINT_SPUTCH    _sputch_TEXT                    
-___print_uputch                       C:4753 PRINT_UPUTCH    _uputch_TEXT                    
+___print_putch                        C:420F PRINT_PUTCH     t_putch_TEXT                    
+___print_putromstring                 C:4254 PRINT_PUTROMSTR mstring_TEXT                    
+___print_send                         C:3F7E PRINT_SEND      nt_send_TEXT                    
+___print_sputch                       C:4225 PRINT_SPUTCH    _sputch_TEXT                    
+___print_uputch                       C:41F6 PRINT_UPUTCH    _uputch_TEXT                    
 ___print_xputch                       E:0B84 PRINT_GLOBALS   FAR_DATA                        
 __close_periphdevice                  C:10B9 zsldevinit      CODE                            
 __far_atof                            C:10BA fpdumyl         CODE                            
 __far_frexp                           C:10BA fpdumyl         CODE                            
 __far_modf                            C:10BA fpdumyl         CODE                            
-__far_strlen                          C:46C6 STRLEN          strlen_TEXT                     
+__far_strlen                          C:4169 STRLEN          strlen_TEXT                     
 __far_strtod                          C:10BA fpdumyl         CODE                            
 __fpadd                               C:10BA fpdumyl         CODE                            
 __fpcmp                               C:10BA fpdumyl         CODE                            
@@ -568,18 +568,18 @@ __u_dtof                              C:10BA fpdumyl         CODE
 __u_dtog                              C:10BA fpdumyl         CODE                            
 __u_flt_info                          C:10BA fpdumyl         CODE                            
 __u_flt_rnd                           C:10BA fpdumyl         CODE                            
-__u_ltoa                              C:42AD ULTOA           ultoa_TEXT                      
-__u_reverse                           C:483C UREVERSE        reverse_TEXT                    
-__u_stoa                              C:472C USTOA           ustoa_TEXT                      
-__u_ultoa                             C:4911 UULTOA          uultoa_TEXT                     
-__u_ustoa                             C:4708 UUSTOA          uustoa_TEXT                     
+__u_ltoa                              C:4568 ULTOA           ultoa_TEXT                      
+__u_reverse                           C:4A98 UREVERSE        reverse_TEXT                    
+__u_stoa                              C:41CF USTOA           ustoa_TEXT                      
+__u_ultoa                             C:42DF UULTOA          uultoa_TEXT                     
+__u_ustoa                             C:41AB UUSTOA          uustoa_TEXT                     
 __ubdiv                               C:1343 ubdiv           CODE                            
 __ucase                               C:1305 ucase           CODE                            
 __uldiv                               C:11F5 uldiv           CODE                            
 __ulmul                               C:115D ulmul           CODE                            
 __user_frequency                    01194000 (User Defined)
 __uwdiv                               C:12D4 uwdiv           CODE                            
-_abs                                  C:47FE ABS             abs_TEXT                        
+_abs                                  C:42A1 ABS             abs_TEXT                        
 _acos                                 C:10BA fpdumyl         CODE                            
 _angle                                E:0118 GAME            FAR_BSS                         
 _asin                                 C:10BA fpdumyl         CODE                            
@@ -591,8 +591,8 @@ _calculateNextPosition                C:1D35 GAME            game_TEXT
 _ceil                                 C:10BA fpdumyl         CODE                            
 _character_data                       E:059A GAME            FAR_DATA                        
 _chosenLevel                          E:077C GAME            FAR_DATA                        
-_clearLine                            C:31B8 SERIALDRIVER    ldriver_TEXT                    
-_clearScreen                          C:3187 SERIALDRIVER    ldriver_TEXT                    
+_clearLine                            C:3586 SERIALDRIVER    ldriver_TEXT                    
+_clearScreen                          C:3555 SERIALDRIVER    ldriver_TEXT                    
 _clockDisplay                         C:156A DISPLAYDRIVER   ydriver_TEXT                    
 _clockDisplay0                        C:150B DISPLAYDRIVER   ydriver_TEXT                    
 _clockDisplay1                        C:151E DISPLAYDRIVER   ydriver_TEXT                    
@@ -600,18 +600,16 @@ _clockDisplay2                        C:1531 DISPLAYDRIVER   ydriver_TEXT
 _clockDisplay3                        C:1544 DISPLAYDRIVER   ydriver_TEXT                    
 _clockDisplays                        C:1557 DISPLAYDRIVER   ydriver_TEXT                    
 _close_periphdevice                   C:10B9 zsldevinit      CODE                            
-_convert1616                          C:30FC NUMBERFORMAT    rformat_TEXT                    
-_convert1814                          C:30D1 NUMBERFORMAT    rformat_TEXT                    
-_cos                                  C:3C4B TRIGONOMETRY    nometry_TEXT                    
+_cos                                  C:3158 TRIGONOMETRY    nometry_TEXT                    
 _cosh                                 C:10BA fpdumyl         CODE                            
 _displayCol                           E:077A GAME            FAR_DATA                        
 _displayScore                         C:1DC0 GAME            game_TEXT                       
-_drawBlankSpace                       C:3650 SERIALDRIVER    ldriver_TEXT                    
-_drawBoundaries                       C:330B SERIALDRIVER    ldriver_TEXT                    
-_drawGameStats                        C:3A33 SERIALDRIVER    ldriver_TEXT                    
+_drawBlankSpace                       C:3A1E SERIALDRIVER    ldriver_TEXT                    
+_drawBoundaries                       C:36D9 SERIALDRIVER    ldriver_TEXT                    
+_drawGameStats                        C:3E01 SERIALDRIVER    ldriver_TEXT                    
 _drawObstructions                     C:1F23 GAME            game_TEXT                       
-_drawSingleObstruction                C:384E SERIALDRIVER    ldriver_TEXT                    
-_drawStriker                          C:343D SERIALDRIVER    ldriver_TEXT                    
+_drawSingleObstruction                C:3C1C SERIALDRIVER    ldriver_TEXT                    
+_drawStriker                          C:380B SERIALDRIVER    ldriver_TEXT                    
 _errno                                E:0100 startupl        FAR_BSS                         
 _exit                                 C:14FC startupl        startup                         
 _exp                                  C:10BA fpdumyl         CODE                            
@@ -626,21 +624,21 @@ _g_clock1                             E:01E0 zsldevinit      FAR_DATA
 _g_simulate                           E:01DF zsldevinit      FAR_DATA                        
 _g_Txflag0                            E:0B86 WRITEUART0      FAR_DATA                        
 _game                                 E:077B GAME            FAR_DATA                        
-_get_freq                             C:429A get_freq        getfreq_TEXT                    
-_getTimer0                            C:3AE0 TIMER           timer_TEXT                      
+_get_freq                             C:4156 get_freq        getfreq_TEXT                    
+_getTimer0                            C:34FF TIMERDRIVER     rdriver_TEXT                    
 _health                               E:011A GAME            FAR_BSS                         
-_homeCursor                           C:32EB SERIALDRIVER    ldriver_TEXT                    
-_init_uart                            C:400E SIO             sio_TEXT                        
+_homeCursor                           C:36B9 SERIALDRIVER    ldriver_TEXT                    
+_init_uart                            C:3ECA SIO             sio_TEXT                        
 _initKeyPD3                           C:17DF KEYDRIVER       ydriver_TEXT                    
 _initKeyPF6                           C:17EE KEYDRIVER       ydriver_TEXT                    
 _initKeyPF7                           C:17FD KEYDRIVER       ydriver_TEXT                    
 _initKeys                             C:180C KEYDRIVER       ydriver_TEXT                    
-_initSerial                           C:32AF SERIALDRIVER    ldriver_TEXT                    
-_initTimer0                           C:3AFC TIMER           timer_TEXT                      
+_initSerial                           C:367D SERIALDRIVER    ldriver_TEXT                    
+_initTimer0                           C:351B TIMERDRIVER     rdriver_TEXT                    
 _insertInVideoBuffer                  C:1682 DISPLAYDRIVER   ydriver_TEXT                    
 _isEnterKeyPressed                    C:1842 KEYDRIVER       ydriver_TEXT                    
 _isLeftKeyPressed                     C:181C KEYDRIVER       ydriver_TEXT                    
-_isr_timer0                           C:3ACE TIMER           timer_TEXT                      
+_isr_timer0                           C:34ED TIMERDRIVER     rdriver_TEXT                    
 _isRightKeyPressed                    C:182F KEYDRIVER       ydriver_TEXT                    
 _ldexp                                C:10BA fpdumyl         CODE                            
 _len_farbss                         000000DE (User Defined)
@@ -649,10 +647,10 @@ _len_nearbss                        00000000 (User Defined)
 _len_neardata                       00000000 (User Defined)
 _level                                E:011B GAME            FAR_BSS                         
 _levelROM                             C:0B38 LEVEL           ROM_DATA                        
-_loadLevelFromROM                     C:3F85 LEVEL           level_TEXT                      
+_loadLevelFromROM                     C:3492 LEVEL           level_TEXT                      
 _log                                  C:10BA fpdumyl         CODE                            
 _log10                                C:10BA fpdumyl         CODE                            
-_low_far_romdata                    00004CB1 (User Defined)
+_low_far_romdata                    00004B6D (User Defined)
 _low_farbss                         00000100 (User Defined)
 _low_fardata                        000001DE (User Defined)
 _low_near_romdata                   00000000 (User Defined)
@@ -667,38 +665,37 @@ _obstructionsRemaining                E:019B GAME            FAR_BSS
 _obstuctionCollision                  C:2BCE GAME            game_TEXT                       
 _open_periphdevice                    C:10B8 zsldevinit      CODE                            
 _pow                                  C:10BA fpdumyl         CODE                            
-_printFixedPoint1616                  C:2FDB NUMBERFORMAT    rformat_TEXT                    
-_putch                                C:4B9A PUTCH           putch_TEXT                      
+_putch                                C:4981 PUTCH           putch_TEXT                      
 _resetPositions                       C:1E62 GAME            game_TEXT                       
-_resetTimer0                          C:3AED TIMER           timer_TEXT                      
-_rotate                               C:3C7D VECTOR          vector_TEXT                     
-_roundToShort                         C:311F NUMBERFORMAT    rformat_TEXT                    
+_resetTimer0                          C:350C TIMERDRIVER     rdriver_TEXT                    
+_rotate                               C:318A VECTOR          vector_TEXT                     
+_roundToShort                         C:2FDB NUMBERFORMAT    rformat_TEXT                    
 _score                                E:0776 GAME            FAR_DATA                        
-_select_port                          C:3FE0 SIO             sio_TEXT                        
-_setColor                             C:3248 SERIALDRIVER    ldriver_TEXT                    
+_select_port                          C:3E9C SIO             sio_TEXT                        
+_setColor                             C:3616 SERIALDRIVER    ldriver_TEXT                    
 _setCoordinates                       C:1E07 GAME            game_TEXT                       
-_setCursor                            C:31E9 SERIALDRIVER    ldriver_TEXT                    
+_setCursor                            C:35B7 SERIALDRIVER    ldriver_TEXT                    
 _showBinaryDisplay0                   C:15AA DISPLAYDRIVER   ydriver_TEXT                    
-_sin                                  C:3B36 TRIGONOMETRY    nometry_TEXT                    
-_SIN                                  E:0783 TRIGONOMETRY    FAR_DATA                        
+_sin                                  C:3043 TRIGONOMETRY    nometry_TEXT                    
+_SIN                                  E:0781 TRIGONOMETRY    FAR_DATA                        
 _sinh                                 C:10BA fpdumyl         CODE                            
 _sqrt                                 C:10BA fpdumyl         CODE                            
 _SQRT2HALF                            E:077D GAME            FAR_DATA                        
-_stopTimer0                           C:3B2B TIMER           timer_TEXT                      
+_stopTimer0                           C:354A TIMERDRIVER     rdriver_TEXT                    
 _strikerPosition                      E:0116 GAME            FAR_BSS                         
 _strikerWidth                         E:0775 GAME            FAR_DATA                        
 _tan                                  C:10BA fpdumyl         CODE                            
 _tanh                                 C:10BA fpdumyl         CODE                            
-_timer0Counter                        E:0781 TIMER           FAR_DATA                        
-_updateBallOnScreen                   C:369D SERIALDRIVER    ldriver_TEXT                    
+_timer0Counter                        E:0B81 TIMERDRIVER     FAR_DATA                        
+_updateBallOnScreen                   C:3A6B SERIALDRIVER    ldriver_TEXT                    
 _updateDirectionOnCollision           C:1FBC GAME            game_TEXT                       
 _updateDisplay                        C:15DA DISPLAYDRIVER   ydriver_TEXT                    
 _updateObstructionOnHit               C:2A38 GAME            game_TEXT                       
 _videoBuffer                          E:0102 DISPLAYDRIVER   FAR_BSS                         
-_write_UART0                          C:4BF7 WRITEUART0      teuart0_TEXT                    
+_write_UART0                          C:49DE WRITEUART0      teuart0_TEXT                    
 _zsl_g_clock_xdefine                01194000 (User Defined)
 
-230 external symbol(s).
+227 external symbol(s).
 
 
 START ADDRESS:
