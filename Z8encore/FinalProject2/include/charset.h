@@ -1,14 +1,3 @@
-/*************************************************
- *
- *  File Name: charset.h
- *
- *  Last modified:
- *  Michael Thomsen     21/03/2005
- *
- * 	Change log: none
- *************************************************/
-
-
 /*** Supported ASCII characters ***
 
 ASCII	CHAR	ASCII	CHAR	ASCII	CHAR	ASCII	CHAR	ASCII	CHAR	ASCII	CHAR
@@ -133,6 +122,7 @@ const char character_data[95][5] = {
   {0x00, 0x08, 0x36, 0x41, 0x00},
   {0x00, 0x00, 0x7F, 0x00, 0x00},
   {0x00, 0x41, 0x36, 0x08, 0x00},
-  {0x08, 0x04, 0x08, 0x10, 0x08}};
+  {0x08, 0x04, 0x08, 0x10, 0x08}
+};
 
 #endif 

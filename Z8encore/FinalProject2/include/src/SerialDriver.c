@@ -1,4 +1,4 @@
-#include "SerialDriver.h"
+#include "serialDriver.h"
 #include "vector.h"
 #include "numberformat.h"
 
@@ -31,24 +31,37 @@ void setColor(short fg, short bg) {
 }
 
 /*
+	Setup serial communication
+*/
+void initSerial() {
+	init_uart(_UART0, _DEFFREQ, _DEFBAUD);
+}
+
+/*
+	Set the cursor at the default position
+*/
+void homeCursor() {
+	setCursor(1,31);
+}
+
+/*
 	Draw boundaries of the game 
 */
 void drawBoundaries() {
 	short i;
-	setColor(solidColor, backgroundColor);
+	setColor(solidColor, backgroundColor);	
 
 	setCursor(1, 1);
 	printf("%c", 220);	// Print upperleft corner
-	for (i = 1; i <= width; i++){
+	for (i = 1; i <= width; i++) // Print top of the boundaries
 		printf("%c", 220);
-	}
 	printf("%c", 220);	// Print upperright corner
 
 	// Print sides
 	for (i = 2; i < height; i++) {
-		setCursor(1, i);
-	    printf("%c", 219);
-		setCursor(width + 2, i);
+		setCursor(1, i);		// Set the cursor to the left side 
+	    printf("%c", 219);	
+		setCursor(width + 2, i); // Set the cursor to the right side
 		printf("%c", 219);
 	}
 	homeCursor();
@@ -103,7 +116,9 @@ void drawBlankSpace(short x, short y) {
 	printf("%c", 32);
 }
 
+// Array to store the last 8 positions of the ball
 short ball[8][2];
+
 /*
 	Update the balls position in the game
 */
@@ -118,6 +133,7 @@ void updateBallOnScreen(struct Vector *nextPosition){
 		ball[i + 1][0] = ball[i][0];
 		ball[i + 1][1] = ball[i][1];
 	}
+
 	// Set the new position at the end of the array
 	ball[0][0] = roundToShort(nextPosition->x);
 	ball[0][1] = roundToShort(nextPosition->y);
@@ -133,29 +149,35 @@ void updateBallOnScreen(struct Vector *nextPosition){
 
 /*
 	Draw an obstruction at the passed position
+	This function returns the number of life the drawn obstruction has
 */
 char drawSingleObstruction(char arrayPosition, long bitPosition, long current) {
 	char k;
+	// Set the cursor at the start of the obstruction
 	setCursor(((30 - bitPosition) << 2) + 2 , arrayPosition + 2);
 
+	// Draw a blue, soild block
 	if (((current >> bitPosition) & 0x3) == 0x3) {
 		setColor(solidColor, backgroundColor);
 		for (k = 0; k < 8; k++) 
 			printf("%c", 219);
 		return 0;
 	}
+	// Draw a green obstruction with two life
 	else if (((current >> bitPosition) & 0x2) == 0x2) {
 		setColor(block2LifeColor, backgroundColor);
 		for (k = 0; k < 8; k++) 
 			printf("%c", 178);
 		return 2;
 	}
+	// Draw a red obstruction with one life
 	else if (((current >> bitPosition) & 0x1) == 0x1) {
 		setColor(block1LifeColor, backgroundColor);
 		for (k = 0; k < 8; k++)
 			printf("%c", 176);
 		return 1;
 	}
+	// Draw a blank space instead of an obstruction
 	else {
 		printf("        ");
 		return 0;
@@ -167,24 +189,12 @@ char drawSingleObstruction(char arrayPosition, long bitPosition, long current) {
 */
 void drawGameStats(unsigned char health, unsigned long obstructions) {
 	setColor(redTextColor, backgroundColor);\
+	
+	// Print the number of obstructions left
 	setCursor(24, 33);
 	printf("%04d", obstructions);
 
+	// Print the number of remaning health 
 	setCursor(38, 33);
 	printf("%d", health);
-}
-
-
-/*
-	Setup serial communication
-*/
-void initSerial() {
-	init_uart(_UART0, _DEFFREQ, _DEFBAUD);
-}
-
-/*
-	Set the cursor at the default position
-*/
-void homeCursor() {
-	setCursor(1,31);
 }

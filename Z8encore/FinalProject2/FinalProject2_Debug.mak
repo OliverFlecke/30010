@@ -201,8 +201,8 @@ M:\Documents\GitHub\30010\Z8encore\FinalProject2\SerialDriver.obj :  \
             C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
             C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
             C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
-            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\SERIAL~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\NUMBER~1.H  \
+            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\SERIAL~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TRIGON~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\vector.h
 	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\SerialDriver.c
@@ -234,15 +234,6 @@ M:\Documents\GitHub\30010\Z8encore\FinalProject2\trigonometry.obj :  \
 
 M:\Documents\GitHub\30010\Z8encore\FinalProject2\vector.obj :  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\vector.c  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDIO.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\FORMAT.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\std\STDARG.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\defines.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\SIO.H  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uart.h  \
-            C:\PROGRA~2\ZiLOG\ZDSII_~1.3\include\zilog\uartdefs.h  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\NUMBER~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TRIGON~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\vector.h

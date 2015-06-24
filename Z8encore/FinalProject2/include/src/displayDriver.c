@@ -48,7 +48,11 @@ void clockDisplays() {
 	clockDisplay3();
 }
 
+/*
+	Clock the display with the parsed number
+*/
 void clockDisplay(char display) {
+	// Clock display bassed on the input
 	switch (display) {
 		case 0:
 			clockDisplay0();
@@ -82,7 +86,9 @@ void showBinaryDisplay0(char i){
 	clockDisplays();
 }
 
-
+/*
+	Update the parsed display and column with character in the videobuffer
+*/
 void updateDisplay(char character, char col, char display) {
 	PEDD = 0x00;
 	PGDD = 0x00; 
@@ -90,7 +96,10 @@ void updateDisplay(char character, char col, char display) {
 	PEADDR = 0;
 	PGADDR = 0;
 
+	// Gets the correct data from the videobuffer 
 	PGOUT = videoBuffer[character][col]; 
+
+	// Output the on the correct colomn
 	switch(col) {
 		case 4:
 			PEOUT = 0x1E;	
