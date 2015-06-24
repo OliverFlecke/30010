@@ -2,13 +2,14 @@
 #define GAME_H
 
 // Libraries
-#include "vector.h"	
-#include "numberformat.h"
-#include "timer.h"
+#include "timerDriver.h"
 #include "serialDriver.h"
 #include "keyDriver.h"
-#include "trigonometry.h"
 #include "displayDriver.h"
+
+#include "vector.h"	
+#include "numberformat.h"
+#include "trigonometry.h"
 #include "level.h"
 
 // Constants

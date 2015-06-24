@@ -2,8 +2,8 @@
 #define DISPLAY_H
 
 #include <eZ8.h>
-#include "charset.h"
 #include <sio.h>
+#include "charset.h"
 #include "serialDriver.h"
 
 void showBinaryDisplay0(char i);

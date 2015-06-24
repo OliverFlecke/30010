@@ -346,7 +346,7 @@ void updateDirectionOnCollision(struct Vector *position , struct Vector *directi
 */
 void updateObstructionOnHit(char value, char arrayPosition, long bitPosition) {
 	// If the obstruction is an obstuction with life, we change it 
-	if (value <= 2 || value >= 1) {
+	if (value <= 2 && value >= 1) {
 		level[arrayPosition] -= 1 << bitPosition;	// subtract 1 from the value of the hit obstruction's "life"
 		drawSingleObstruction(arrayPosition, bitPosition, level[arrayPosition]);	// Update displayed obstruction
 		obstructionsRemaining--;						// Substract 1 from the remaining obstruction
