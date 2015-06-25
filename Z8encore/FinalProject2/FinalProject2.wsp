@@ -327,7 +327,7 @@ MDIChild=False
 MRUDockBottomPos=342
 MRUDockID=0
 MRUDockLeftPos=1
-MRUDockRightPos=1600
+MRUDockRightPos=784
 MRUDockTopPos=5
 MRUDockingState=0
 MRUFloatCX=300
@@ -335,7 +335,7 @@ MRUFloatCY=180
 MRUFloatStyle=4
 MRUFloatXPos=-2147483648
 MRUFloatYPos=4217936
-MRUHorzDockCX=1599
+MRUHorzDockCX=783
 MRUHorzDockCY=337
 MRUVertDockCX=300
 MRUVertDockCY=180
@@ -355,7 +355,7 @@ Docking=True
 DockingStyle=61440
 ExStyle=3889
 MDIChild=False
-MRUDockBottomPos=685
+MRUDockBottomPos=669
 MRUDockID=0
 MRUDockLeftPos=0
 MRUDockRightPos=180
@@ -369,7 +369,7 @@ MRUFloatYPos=6822976
 MRUHorzDockCX=300
 MRUHorzDockCY=180
 MRUVertDockCX=180
-MRUVertDockCY=687
+MRUVertDockCY=671
 PctWidth=1000000
 PrevFloating=False
 ResourceID=0
@@ -389,7 +389,7 @@ MDIChild=False
 MRUDockBottomPos=28
 MRUDockID=0
 MRUDockLeftPos=-1
-MRUDockRightPos=1599
+MRUDockRightPos=783
 MRUDockTopPos=-1
 MRUDockingState=0
 MRUFloatCX=0
@@ -397,7 +397,7 @@ MRUFloatCY=0
 MRUFloatStyle=8196
 MRUFloatXPos=-2147483648
 MRUFloatYPos=0
-MRUHorzDockCX=1600
+MRUHorzDockCX=784
 MRUHorzDockCY=29
 MRUVertDockCX=0
 MRUVertDockCY=0
@@ -489,21 +489,10 @@ ptn_Child1=MainFrame
 ptn_Child2=ChildFrames
 
 [WorkState_v1_1.Frames.ChildFrames]
-ptn_Child1=Document-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-0]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_1.Frames.ChildFrames.Document-0.ViewFrame-0]
-DocPathName=.\main.c
-DocTemplateIndex=0
-DocumentString=IDE Document
-IsActiveChildFrame=True
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPBOPPPPPPAAAAAAAAAAAAAAAAMICAAAAAMNBAAAAA
 
 [WorkState_v1_1.Frames.MainFrame]
-Title=FinalProject2 -- ZDS II - Z8 Encore! Family -- main.c - [main.c]
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAAADIPPPPAADIPPPPPPPPPPPPPPPPPPPPEOPPPPPPHOAAAAAAEJEAAAAAIDEAAAAA
+Title=FinalProject2 -- ZDS II - Z8 Encore! Family
+WindowPlacement=MCAAAAAACAAAAAAABAAAAAAAAADIPPPPAADIPPPPPPPPPPPPPPPPPPPPEOPPPPPPHOAAAAAAEJEAAAAAIDEAAAAA
 
 [WorkState_v1_1.ToolBarMgr]
 CoolLook=True

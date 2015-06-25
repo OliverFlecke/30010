@@ -1,17 +1,27 @@
-#include "Timer.h"
+#include "timerDriver.h"
 #include <eZ8.h>
 
+// Counter for timer 0
 short timer0Counter = 0;
 
+/*
+	Interrupt function for timer 0
+*/
 #pragma interrupt 
 void isr_timer0() {
 	timer0Counter++;
 }
 
+/*
+	Get the counter for timer 0
+*/
 short getTimer0() {
 	return timer0Counter;
 }
 
+/*
+	Reset timer 0, so it can recount
+*/
 void resetTimer0() {
 	timer0Counter = 0;
 }
@@ -46,6 +56,9 @@ void initTimer0() {
 	T0CTL |= 0x80;	
 }
 
+/*
+	Stop/disable timer 0
+*/
 void stopTimer0() {
 	T0CTL = 0;
 }

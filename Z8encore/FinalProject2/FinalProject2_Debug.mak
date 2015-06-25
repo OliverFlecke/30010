@@ -64,6 +64,8 @@ clean:
             del M:\Documents\GitHub\30010\Z8encore\FinalProject2\timerDriver.obj
 	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\serialDriver.obj  \
             del M:\Documents\GitHub\30010\Z8encore\FinalProject2\serialDriver.obj
+	@if exist M:\Documents\GitHub\30010\Z8encore\FinalProject2\charset.obj  \
+            del M:\Documents\GitHub\30010\Z8encore\FinalProject2\charset.obj
 
 rebuildall: clean Debug
 
@@ -82,7 +84,8 @@ OBJS =  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\vector.obj  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\level.obj  \
             M:\Documents\GitHub\30010\Z8encore\FinalProject2\timerDriver.obj  \
-            M:\Documents\GitHub\30010\Z8encore\FinalProject2\serialDriver.obj
+            M:\Documents\GitHub\30010\Z8encore\FinalProject2\serialDriver.obj  \
+            M:\Documents\GitHub\30010\Z8encore\FinalProject2\charset.obj
 
 FinalProject2: $(OBJS)
 	 $(LINK)  @M:\Documents\GitHub\30010\Z8encore\FinalProject2\FinalProject2_Debug.linkcmd
@@ -225,4 +228,9 @@ M:\Documents\GitHub\30010\Z8encore\FinalProject2\serialDriver.obj :  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\TRIGON~1.H  \
             M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\vector.h
 	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\serialDriver.c
+
+M:\Documents\GitHub\30010\Z8encore\FinalProject2\charset.obj :  \
+            M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\charset.c  \
+            M:\DOCUME~1\GitHub\30010\Z8encore\FINALP~2\include\charset.h
+	 $(CC)  $(CFLAGS) M:\Documents\GitHub\30010\Z8encore\FinalProject2\include\src\charset.c
 

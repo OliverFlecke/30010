@@ -53,6 +53,9 @@ char isRightKeyPressed() {
 		return 0;
 }
 
+/*
+	Check if the enter key is pressed
+*/
 char isEnterKeyPressed(){
 	if ((PFIN & 0x40) == 0)
 		return 1;

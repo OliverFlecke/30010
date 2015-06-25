@@ -1,15 +1,15 @@
 #include "game.h"
 
-unsigned short strikerPosition;
+unsigned short strikerPosition;	// Positon of the striker. 
 char strikerWidth = 11;		// Must be an odd number
-short angle;			// Start angle. Must match start direction vector
-unsigned long score = 0;
-unsigned char health;
-char displayCol = 0;
-char game = 0;
-char chosenLevel = 1;
-long level[32];
-long obstructionsRemaining;
+short angle;				// Start angle. Must match start direction vector
+unsigned long score = 0;	// The score of the game
+unsigned char health;		// Healt of the player
+char displayCol = 0;		// Column to update on the LED display
+char game = 0;				// Flag to see if the game is runnig or not
+char chosenLevel = 1;		// Level chosen 
+long level[32];				// The current level stored in RAM
+long obstructionsRemaining;	// Number of remaining obstructions 
 const long SQRT2HALF = 0xB504;
 
 /*
@@ -77,7 +77,7 @@ void mainGame() {
 			}
 
 			// Start game on enter key press
-			if(isEnterKeyPressed()==1 && getTimer0() >= menuKeyDebounce){
+			if (isEnterKeyPressed() == 1 && getTimer0() >= menuKeyDebounce) {
 				resetTimer0();
 				game = 1;	// Set the game flag
 			}
@@ -91,7 +91,7 @@ void mainGame() {
 		resetPositions(&currentPosition, &nextPosition, &direction);
 
 		// Sets the health and displays it to the user
-		health = 3;
+		health = 2;
 		drawGameStats(health, obstructionsRemaining);
 
 		// Game loop
@@ -322,20 +322,22 @@ void updateDirectionOnCollision(struct Vector *position , struct Vector *directi
 			drawGameStats(health, obstructionsRemaining);
 
 			// Tell the player he has lost a life
-			setCursor(58, 33);
+			setCursor(58, HEIGTH + 1);
 			printf("You lost a life!");
 			resetTimer0();
 			while (getTimer0() <= 2000) { /* wait two seconds */ }
-			setCursor(58, 33);		
+			setCursor(58, HEIGTH + 1);		
 			printf("                 "); // remove the text again	
 		} 
 		else {
 			// Game over
 			clearScreen();
 			drawBoundaries();
-			setCursor(50, 8);
+			setCursor(50, 6);
 			setColor(redTextColor, backgroundColor);
 			printf("********* GAME OVER! **********");
+			setCursor(55, 8);
+			printf("Press enter to retry");
 			game = 0;
 		}
 	}

@@ -1,13 +1,4 @@
-// =====================================================================
-//	  Look-Up Tables
-//		SIN: sin(x*pi/256)
-//
-//	Exported by Cearn's excellut v1.0
-//	(comments, kudos, flames to daytshen@hotmail.com)
-//
-// =====================================================================
 #include "trigonometry.h"
-#include <sio.h>
 
 // -----------------------------------------------------------------------
 // SIN: a 512 long LUT of 16bit values in 2.14 format

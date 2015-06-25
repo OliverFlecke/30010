@@ -14,6 +14,7 @@
 <file filter-key="">include\src\level.c</file>
 <file filter-key="">include\src\timerDriver.c</file>
 <file filter-key="">include\src\serialDriver.c</file>
+<file filter-key="">include\src\charset.c</file>
 </files>
 
 <!-- configuration information -->

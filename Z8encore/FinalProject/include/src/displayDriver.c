@@ -39,16 +39,10 @@ void clockDisplay3() {
 }
 
 /*
-	Clock all displays
+	Clock the display with the parsed number
 */
-void clockDisplays() {
-	clockDisplay0();
-	clockDisplay1();
-	clockDisplay2();
-	clockDisplay3();
-}
-
 void clockDisplay(char display) {
+	// Clock display bassed on the input
 	switch (display) {
 		case 0:
 			clockDisplay0();
@@ -66,23 +60,8 @@ void clockDisplay(char display) {
 }
 
 /*
-	Show a number on the first column
+	Update the parsed display and column with character in the videobuffer
 */
-void showBinaryDisplay0(char i){
-	PEDD = 0x00;		// Set port E as output
-	PGDD = 0x00;		// Set port G as output
-
-	PEADDR = 0;
-	PGADDR = 0;
-	
-	// Display number on column 4
-	PEOUT = 0x0F;			// Activate col 4
-	PGOUT = i & (~0x80);	// Display the passed char on column 4
-
-	clockDisplays();
-}
-
-
 void updateDisplay(char character, char col, char display) {
 	PEDD = 0x00;
 	PGDD = 0x00; 
@@ -90,7 +69,10 @@ void updateDisplay(char character, char col, char display) {
 	PEADDR = 0;
 	PGADDR = 0;
 
+	// Gets the correct data from the videobuffer 
 	PGOUT = videoBuffer[character][col]; 
+
+	// Output the on the correct colomn
 	switch(col) {
 		case 4:
 			PEOUT = 0x1E;	
@@ -113,8 +95,11 @@ void updateDisplay(char character, char col, char display) {
 	clockDisplay(display);
 }
 
+/*
+	Convert a number in miliseconds into displaying seconds in the video buffer
+*/
 void insertInVideoBuffer(long value){
-	short i,j,tempDigit;
+	short i, j, tempDigit;
 
 	value /= 1000;
 
